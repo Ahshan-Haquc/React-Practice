@@ -1,0 +1,26 @@
+.center {
+  max-height: fit-content;
+  min-height: 100vh;
+  width: 90vw;
+  padding: 20px;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+}
+
+.cardDiv {
+  height: 200px;
+  width: 100px;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
