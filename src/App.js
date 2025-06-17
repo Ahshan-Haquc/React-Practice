@@ -1,19 +1,23 @@
-import Cart from "./components/contextAPI/Cart";
-// Cart কম্পোনেন্ট ইম্পোর্ট করছি যেখানে context-এর ডেটা দেখাবো
-import { ProviderContext } from "./components/contextAPI/CreateContext";
-// ProviderContext ইম্পোর্ট করছি যাতে Cart এবং Home context পায়
-import Home from "./components/contextAPI/Home";
-// Home কম্পোনেন্ট ইম্পোর্ট করছি
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Cart from "./components/cartApp.jsx/Cart";
+import { CartContextProvider } from "./components/cartApp.jsx/CartContext";
+import Home from "./components/cartApp.jsx/Home";
+import Products from "./components/cartApp.jsx/Products";
+
 
 function App() {
   return (
-    <ProviderContext> 
-      {/* ProviderContext দিয়ে Home ও Cart কে wrap করছি যাতে তারা context ডেটা পায় */}
-      <Home />
-      <Cart />
-    </ProviderContext>
+    <CartContextProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/products" element={<Products/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="*" element={<h1>No page found!!</h1>}/>
+      </Routes>
+    </BrowserRouter>
+    </CartContextProvider>
   );
 }
 
-export default App; 
-// App component কে export করছি যাতে index.js বা অন্য জায়গায় ব্যবহার করা যায়
+export default App;
